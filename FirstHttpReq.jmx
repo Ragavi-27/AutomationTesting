@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.5">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SampleTestcase1" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">3</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request-google" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${CSV_URL}</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="false">
+            <stringProp name="DurationAssertion.duration">1000</stringProp>
+          </DurationAssertion>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-764406970">Advanced search</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="false">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">3</stringProp>
+        </LoopController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request-yahoo" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${yahoo}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">5000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="yahoo" elementType="Argument">
+              <stringProp name="Argument.name">yahoo</stringProp>
+              <stringProp name="Argument.value">yahoo.com</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <DebugSampler guiclass="TestBeanGUI" testclass="DebugSampler" testname="Debug Sampler" enabled="true">
+          <boolProp name="displayJMeterProperties">false</boolProp>
+          <boolProp name="displayJMeterVariables">true</boolProp>
+          <boolProp name="displaySystemProperties">false</boolProp>
+        </DebugSampler>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">C:/Users/Ragavi/Documents/JmeterFiles/CSV_URL.csv</stringProp>
+          <boolProp name="ignoreFirstLine">true</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">CSV_URL</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Testcase_Recording" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Launch" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Launch/login.php-1" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/login.php</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Launch/jserrors/1/f9d051f404?a=205242107&amp;sa=1&amp;v=1216.487a282&amp;t=Unnamed%20Transaction&amp;rst=190873&amp;ck=1&amp;ref=https://app.hubspot.com/conversations-visitor/7940397/threads/utk/af0c227d4e044bb082e1d7190fd1789c-2" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;sm&quot;:[{&quot;params&quot;:{&quot;name&quot;:&quot;Ajax/Events/Excluded/Agent&quot;},&quot;stats&quot;:{&quot;c&quot;:1}}],&quot;xhr&quot;:[{&quot;params&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;hostname&quot;:&quot;bam-cell.nr-data.net&quot;,&quot;port&quot;:&quot;443&quot;,&quot;protocol&quot;:&quot;https&quot;,&quot;host&quot;:&quot;bam-cell.nr-data.net:443&quot;,&quot;pathname&quot;:&quot;/jserrors/1/f9d051f404&quot;,&quot;status&quot;:200},&quot;metrics&quot;:{&quot;count&quot;:1,&quot;txSize&quot;:{&quot;t&quot;:736},&quot;rxSize&quot;:{&quot;t&quot;:24},&quot;duration&quot;:{&quot;t&quot;:412},&quot;cbTime&quot;:{&quot;t&quot;:0},&quot;time&quot;:{&quot;t&quot;:129874}}}]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">bam-cell.nr-data.net</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/jserrors/1/f9d051f404?a=205242107&amp;sa=1&amp;v=1216.487a282&amp;t=Unnamed%20Transaction&amp;rst=190873&amp;ck=1&amp;ref=https://app.hubspot.com/conversations-visitor/7940397/threads/utk/af0c227d4e044bb082e1d7190fd1789c</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Launch/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D-3" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#x1f;&#x8b;&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;½&#x95;{l&#x1b;E&#x1e;ÇwÜ&#x16;¦&#x6;A&#x14;&#x10;äàþXÒ4qHÖÞ·wÍ¹&#x8d;&#x1f;&#x89;íÔñ#¶cÇ&#x4;&#x92;}&#x8c;×ëØëõ#~q­Z	è&#x1d;&#x5;&#x89;&#x93;®&#x12;â&#x1f;&#x1e;&#x12;&#x8f;&#x9e;N¢HE&#x15;&#x5;&#x15;Ý©&#x82;&quot;þ&#x0;ñ(&#x85;?x&#x9c;îÐIp ^&#x17;Ý&#x89;&#x3;6&#x8e;¢Þ¡+RÑéæ&#x8f;&#x99;ß&#x8e;´3ßß|¾¿&#x19;û5uI&#x93;ZºÉ3SZEÒËN¥Z&#x19;P&#x86;Àð&apos;WÙ&#x8f;n·&#x17;ò&#x1e;_°Öôå{&#x8c;Y¥ü]_*&#x10;&#x88;*&amp;&#x93;Y&#xd;&#x15;òjxB©¦»Qz¡MFÙ&#x1c;&#x1f;&#x8;©d&#x89;^&#x90;&#x4;f¡Ô£}4&#x89;\®R&#x88;Ñ&#x98;i=Úª%¥d,&lt;§°kY&#x83;4©Ùh &#x96;&#x8;K&#x85;V&#x87;Ô¼^üÈW&#x9f;~{æÜ·6Çù7×?ü&#x17;IþýÎ¯­Ásup:µ/&#x1d;O&#x10;¤{6ãg&#x83;÷&#x3;ìwà}Û©ç&#x87;ÞµÙG&#x1a;¨ÑÐ«Ær£k(FZ&#x88;­æé\@fÅô&#x1a;Ï§ÃÑN¨íõÞð&#x94;&#xd;ÞùÖñï.&#x1f;øã&#x9b;V?&#x84;áÀ&#x81;Ñ&#x98;G&#x1d;&#x1c;P&#x8a;õj&#x5;y\.&#x3;µ&#x9b;&#x92;ìº&#x1;&#x1b;¾&lt;&#x86;ÚxZ&#x92;I0ucø¹&apos;&gt;·4$°&#x1c;¶&#x82;uN&gt;ñÌ#Ç&#x8e;&#x9d;»þap&#x16;&#x1c;&#x7;ØYpÙk&#x0;;&#xf;¶¦?ø·è»­&#x6;&lt;ÇÁ Yl6Í&#x86;µ&#x8b;&#x89;ê&#x85;j½&quot;&#x19;&#xd;
+j¢FS74³.)M]A&#x1b;gî*W5Ýp&#x9a;EÓ&#x92;á&#x8c;n|à&#x1e;&lt;qá&#x1f;Üg&#x9a;e]&#x91;&#x9a;VÆxzs&#x1;&lt;n&#x94;u&#x3;Yjw&#x87;ßê&#x1f;&#x9c;¥&#x16;XjO&lt;w÷&#x1b;?Tk;&#xf;&#x1e;;üÒéM&#x8d;&#x17;¢&#xb;j¿&#x0;6d&#x14;&#x1;&#x8e;&#x9d;&#x2;?&#x17;{òZ4×&#x9b;í&#x85;æ&#x5;·&#x90;N¨B&#x8;¥ê±ÕN5âµß·Í&gt;Â&#x92;¼*&#x89;&#xd;
+&quot;&#xd;
+¬¨&#x12;¬ÈQ&#x84;@&#x91;&#x88;&#x10;è&#x2;Os&#x14;b8RÀ1ÇÛ&#x9b;8ÿöØÆà&#x89;\&#x8c;&#x12;q©&#x87;Ô7ÂGà&#x9e;wÎmû&#x0;À­l&#x6;&#x87;.j&#x3;&#xd;ÞõSX\&quot;	&#x1c;&#x1b;¶C0&#x80;mÚÌ&#x81;&#x91;&#x98;ðà&#x99;&#x17;®&#x9d;&#x2;á¾û&#x12;}&apos;æ¶ä®l&#x5;Å&#xb;&#x10;Ì³ &#x87;&#x1d;&#x4;¶&#x7;&#x0;ö0À&#x9e;&#x4;Øqp&#x9d;ÅC&#x92;¨&#x92;&#x18;&#x98;ï&#x15;*.×&#x9c;«ShÌ&#x4;Í¸&#x9a;Ìg&#x8a;U¯ý^&#x8b;&#x87;&quot; Je,&#x0;&#x1c;CÑ&#x4;[&#x10;&#x19;Bæ8&#x89;à&#x91;ª&#x90;2C©&#x5;&#x9a;·xüé\&#x9f;Ç&amp;&#x96;ÿ5&#x8f;¿ôy¼&#xf;à&#x96;ý~&#x94;ÇÝÿ/&#x1e;ð?x`&#x97;&#x8;Ãª&#x89;&#x83;&#x0;û&#x1;&#x8e;R¶&#x9e;&#x89;&amp;C1ÔHÎÍ&#x97;Û!.&#x11;$3|$6;#x/&#x9e;ôðQ&#x1b;üÕ!&#x1b;|ñq&#x1b;|ú#&#x1b;|õËmðóu&#x0;ß;?&#x8;_&gt;z-|ö&#x11;&#x17;üç&#x1f;lp}Ý&#x6;&#x1f;=±&#x3;¾tx&#x1b;üä&#x1f;6ø×c&#x97;Á&#x87;&gt;Û&#x1;?&gt;º&#x13;þþ&#x84;&#x1d;&gt;xr&apos;üð&#x9b;&#x9d;ð·G~&#x6;&#x1f;ÿó&#x8d;ðÓõ&#x9b;à7ï&#x8d;À&#x13;¯&#x8f;À&#x97;&#x8f;&#x8c;ÃGOOÂß|ì&#x81;&#x87;¾¶&#xd;&#x80;&#x8d;Ôo~&#x0; 9&#x98;&amp;zz½¾ªy|	&#x9f;HÉ¡&#x99;TÃ`Y·&#x1e;ã[|}­Cd&#xb;U-&#x96;©&#x93;k&#x8b;:&#x93;&#x9e;Ö&#x8;7&#x17;N&#x8;½Úò¢»ReåJ6Å&apos;U_¾L&#xd;
+sz±&#x9d;&#xc;Ë|RV[M:b&#x84;Q¶&#x96;îh&#x19;&#x9f;Ö&#x91;ÝzMXËæf&#x94;J7¾hÐ%&#x7f;0ê&#xe;¥2q&#x14;hU&#x18;&#x8e;XË.&#x1b;&#x11;´O5£Ò|y5eÄ­»&#xb;Ð&#x7;m®}&#x81;&#x3;ÎEftrÏ&#x1e;4»lì&#x19;#R&#x1d;ÅÌ.£&#x12;[_Yð/ß1[¥&amp;Ç:IÊ½W&#x8e;gK{&#x93;üô/VrDù&#x16;«&#x10;&#x8a;KîLÃ&#x11;à&#xd;q÷¤ÿÀ­Ã&#x81;Îè&#x18;&#x87;Ç)ö¶©ÑqQòöf&#x1a;ÆBlÉ&#x19;]&#x19;[Q§&#x9c;&#x9a;êYte&#x85;H{Æ3&#x91;KÒøÚ&#x92;S/&#x95;w5]-ã&#x96;ÑÉ {J&#x97;ÚLz.&#x12;ª&#x89;ÅÐ&#x84;·løö&#x8b;KÓ!Ar&#x8;&#x99;&#x89;Ì&#x88;¸klÉá^Ì Î&#x1;å&#x97;­Âí&#x93;»&#x1a;cc·7&#xf;&#x84;9^&#x8b;ß&#x14;Òh&#x16;o&#x94;p&#x86;&#xb;&#x8e;&#x8a;RÆmL,zk&#xb;£ÅTÆhùóy]	&#x99;#Ä&#x9c;c~¹Ôí&#x92;ÓÞ&#x5;Uß[Kå\EÏî&#x1e;¹Ñ(&#x9e;%TN°.S&#x91;å&#x89;&#x8d;&#x99;~ÇÉ&#x9c;è&#x16;&#x19;qÞc¿jðJËÃØüv&#x88;&#xd;&#x80;&#x95;+íÛ&#x87;,Ôÿµ·ì³&#x19;÷M&#x80;å&#x7f;&#xd;ìVÍí&#xf;ô&#x9f;=&lt;&#x1b;&#x89;á&#x14;E;I&apos;ÇS&#x9c;&#x93;b&#x4;Ü!S&lt;Y T&#x11;&#x89;¤$ñ&quot;Kª&#x94;[å&#x14;&#x99;e­9&#x81;âh&#x92;Si&#x92;f&#x89;:*4\rÝª¾&quot;QD&#x92;Úpm,2uÇ.&#x8a;&#x16;¨ýã¸R&#x94;&#xc;&#x3;&#x95;&#x1d;&#xd;ë]-£ñI­§&#x9b;&#xe;­&#x80;Æ&#x13;&#x7;&#xf;½røÕ&#x1d;ò&#x98;/Ò&#x93;R]&#x7f;¼©³&#x95;9&#x82;ï&#x88;Ù &#x91;&#x8f;&#x94;&quot;¨;&#x9d;¡©¸éÏÕ²~­]²&#x1c;\¿&#x2;EºÓ&#x85;²&#x99;&#x9f;ç&#x93;ß&#x3;ë&#x92;&#x87;ò±&#x8;&#x0;&#x0;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">clients4.google.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/login.php-4" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/login.php</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/domainreliability/upload-5" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;entries&quot;:[{&quot;failure_data&quot;:{&quot;custom_error&quot;:&quot;net::ERR_ABORTED&quot;},&quot;http_response_code&quot;:200,&quot;network_changed&quot;:false,&quot;protocol&quot;:&quot;QUIC&quot;,&quot;request_age_ms&quot;:733876,&quot;request_elapsed_ms&quot;:88,&quot;sample_rate&quot;:1.0,&quot;server_ip&quot;:&quot;&quot;,&quot;status&quot;:&quot;aborted&quot;,&quot;url&quot;:&quot;https://beacons.gcp.gvt2.com/domainreliability/upload&quot;,&quot;was_proxied&quot;:false},{&quot;failure_data&quot;:{&quot;custom_error&quot;:&quot;net::ERR_ABORTED&quot;},&quot;http_response_code&quot;:200,&quot;network_changed&quot;:false,&quot;protocol&quot;:&quot;QUIC&quot;,&quot;request_age_ms&quot;:72348,&quot;request_elapsed_ms&quot;:116,&quot;sample_rate&quot;:1.0,&quot;server_ip&quot;:&quot;&quot;,&quot;status&quot;:&quot;aborted&quot;,&quot;url&quot;:&quot;https://beacons.gcp.gvt2.com/domainreliability/upload&quot;,&quot;was_proxied&quot;:false}],&quot;reporter&quot;:&quot;chrome&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">beacons.gcp.gvt2.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+            <stringProp name="HTTPSampler.path">/domainreliability/upload</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D-6" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#x1f;&#x8b;&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;½&#x95;ml[W&#x19;ÇïqÖíÖL#Ê&#x10;&#x84;&#x8e;&#xf;7!M&#x9d;µ×¾ï/NÜÄo¹vê×Ø©_¶¶¹ï¾&#x8e;}}smÇ&#x8e;C«&#x16;ªvc&#x8;¶i&#x15;&#x13;&#x12;c&#x1b;l]&apos;&gt;&#x14;©h¢C&#x95;@&#x82;uBh&#x8;¶ªû2­&#x8;¡iC &#x81;F4´Q®=ÒN&#x95;*&#x14;$¸&#x1f;&#x9e;sô&#x97;Î=Ïs~ÿç&#x1c;÷½¶¨&#x8b;k&#x86;Å&#x90;sz]4j^¹Q&#x1f;&#x96;GÁø7&#x87;Ý_ÛáÖÊþ`dµ&#x15;,÷H«&#x81;&#x87;Ö&#x83;¹p8![äÒ&#x8a; &#x95;&#x95;Ø^¹&#x91;_O&#x10;&#x7;;X&#x82;*2aAÁªÄA&#x91;#&#xf;V{D&#x90;ÀT&#x9f;¯*&#x90;:&#x19;5&#x12;k«Y1&#x9b;&#x8a;%eª]01&#xb;_H&#x84;S&#x99;&#x98;¨­u1=&#x10;@&#x9e;z÷&#x1b;&#x8f;ÿâÊ?]&#x9e;ë&#x17;?¼ö1&#x86;ýýä&#x7;Îàÿl$&#x9a;;&#x90;OgP&#x8c;]X&#xd;
+Q&#x91;G&#x1;ô&quot;øõÐÅ&#x9f;&#x8e;^&#x1e;rO4ÕfÓh&#x98;G&#x9a;ë¦læ¹ÔJ&#x99;(&#x86;%&#x8a;Ï·&#x19;&amp;&#x1f;Kt&#x85;N °ë»CðÉ7Î_¿køç¯;q&#x14;B&#x80;&#x7;&quot; ¿22,WìF]õû|¦Úi&#x89;&#x92;o&#x17;4~WJí yQÂÀÜ}±&#x97;Ï¾ïä&#x90;&#x81;&#x8a;Ð2Ô}éì&#x8f;&#x9f;9wîÊ&#x17;&#x9e;&#x6;&#x97;Áy&#x0;]&#x6;wþ&#x6;@WÁ&#x96;üö§f×·&gt;à&#x7f;Ê5&#x82;UZ-«éìb©¶Ö°ë¢)«-µÙ2LÝ²E¹eÈjÿÌ}µ&#x86;n&#x98;^«bíÚö&#x8a;qo¢?EüHææ&#xd;
+$hY5C&#x16;[Î	!ùO&#x96;#i³f&#x98;*&#x6;ÍMÆ~08è&#x7f;W÷ýs&#xf;]»µ:×U°%&#x7f;º¦·o¨ï&#x82;i÷¶s&#x1d;~ãõMgßQðWàRÍ&#xd;
+@ &#x8b;àK|Oj&apos;&#x8a;½&#x85;&#x9e;°È±\&gt;£p&#x82;&#x9a;³S+ÝF&lt;à¾ä&#x90;Ö4Q£4&#x1a;C	&#x16;cQJ$5&#x94;&apos;Y&#x6;¥y&#x9c;§&#x19;&#x8c;×X&#x9c;E ÏÇ&#x9f;&#x98;çì`ðÇoç	t»I&#xf;l÷m××ß¼2ô&#x98;&#xb;Þª&#x7f;dô¶¦ÓáÓà¿ ¿M&#x8e;&#x8;4î&#x86;¡aÈ15ä&#x81;&lt;§&#x0;&#x6;qÐ&#x1c;&#x88;&#xd;&#x9c;&#x9e;&#x19;¸¾¸&#x95;ìòM&#x82;&#x95;-Íº&#xc;zÐqàz&#x1c;l;Õ&apos;&#x1;ô4&#x80;^&#x0;Ðyðy&#x7;àÁHz¥&#x9a;Vy&#x1;[XëÎ&#x97;«&#x11;®&#x9b;LDKd+&#x99;&#xc;¸¿Õ&#x7;(Ó&#x4;£©*J¨¤&#x8a;R&#x1a;F£&#x1c;&#x89;s¨BS&#x12;ÅR&#xd;
+)r&#x8c;SÄÙÿ%Àw@&#x1f;àï&#x1;|áåS¿û&#x8f;&#x0;Oý¿&#x0;Â&#x3;&#x80;Î­ä&#x81;&#x1c;~o&#x9e;üê=· |îô+&#x97;&#x6;&#x8;·&amp;&#x95;&#x9b;,û&#x8;&#x9d;&gt;:&#xe; [&#x88;T&#xb;öR&quot;+¤Ôf6¹Xë&#x8;t&amp;&#x82;-1ñÔÂ&lt;&#x17;¸}Ýãg\ðC&apos;\ð/&#x9f;wÁ?ú£&#xb;~íoCðû&#x9b;&#x0;~ëê&#x8;üê&#x99;ÏÁ?yÆ&#x7;ÿãg.xsÓ&#x5;?{a&#x7;üÊé!øO&#x1f;ºàwÎÝ	&#x7f;ï/;à÷Îì&#x84;&#x7f;xÁ&#xd;&#x7f;ç¥&#x9d;ðµ&#x8f;vÂO&lt;òEøù?Ü&#x7;ÿys&#xc;þè­	øÂo&apos;àW&#x1f;&#x99;&#x82;&#x9f;½´&#xf;~ì=?|â&#x3;×0èW&#x7f;ÿ&#x93;@&#x95;&quot;y´gØö&#x8a;î&#xf;f&#x82;&lt;.	ó¹¦IQ¬&#x91;bÖ&#x18;»ÝE&#xb;ZCO-ÙX»d&#x90;ù¨&#x8e;²t,ÃõV&#x8f;&#x94;Øz&#x83;&#x92;ê&#x85;&#x1c;&#x93;U&#x82;å&#x1a;Æ%&#x8d;J&apos;&#x1b;&#x93;&#x98;¬¤¬µ&#x88;¸&#x19;S&#xb;«ù®¾&#x14;Ô»&#x12;k¬ríBq^®¯§K&amp;Q&#xd;E&#x12;¬&#x90;[J«áµ:I£íÂ&#x11;3®&#x1e;P¬&#x84;¸X[É&#x99;iç-&#x0;Äq&#x97;°áíÆ&#xf;&#x99;\lwc|cÆX&#xc;´&#x95;±°Þë1È&#x9e;&#x12;&#x12;	&#x1e;+&#x85;Cû&#x1f;(ðs«&#x8d;äXTÓ&#x8d;eÞT§¤ù©Ãè¬§´LxæÃH&#x9c;)&#x16;3e_.ª&#x98;dà&#x10;ßøJ/½¿&amp;ô¼&#x89;ºhcc&#x87;}{å}Èt&#x85;E&#x90;R$5&#x85;m´ï&#x9f;&#x9c;5ºDÁ^Æ¼&#x13;ieM&#x99;&#x19;+i%²#,O&#x8e;Íî;¼?E&#x84;&#x5;o2c/&#x8;û»ñ&#x9c;²RêÌ&#x16;¨ÜØÑætÎ&#x98;Qåt6&#x16;ìøfPI&#x9d;&#x9c;&amp;C&#xf;ì]&#x97;¢ÞHx¼c#Ç²­&#x7;&#x85;h&#xb;É.v³Í&#x8d;C)ÿQvE¥[Ô±â&#x81;\Î,ON&lt;¸{Ö²[%&#x9a;Z^&#xd;mTæg¸=SÓþÝ=¬ÿá&#xc;åt-&#x87;£&#x1c;O1h_&#x19;&#x4;Z¢y&#x96;&apos;ùÅ9÷=#w;×&#x10;´x&#x87;s7&#x81;å»Ýw&#x8c;:¨o&#x89;&#x8e;qnÄ&#x1b;ÊÀ&#xd;
+Pùaàv&#x9a;ïhxð&lt;#&#x85;x&#xd;
+ÁqÂ&#x8b;yi&#x6;§½8É!&#x1e;	g0&#xd;Wx&#x95;ÇD&#x91;á)LÁY&#x85;&#x96;%&#x8a;r4&#xe;§	&#x8c;V&#x8;&#x8c; P[Õ&#x9a;&gt;ÉvÚ°&#x82;VTQiúú?&#x99;Ûø2NpøÑ)D®&#x88;¦©Ö&lt;Mçý¯©Sûô&#x9e;aytM&#x9d;Ê&#x1c;?ñ«Ó¯í&#x90;ö&#x4;ã=1·&#x1e;J·&#xc;ª&#x9e;D&#x99;._&#x88;&#x98;åx5®®G&#x97;&#x8;&lt;m&#x85;&#x8a;«&#x85;&#x90;Þ©:&gt;¶?£Æ×£ZÍ*/2Ù&#x7f;&#x1;;&gt;¯QY	&#x0;&#x0;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">clients4.google.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/login.php-7" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="_hidCheckSubmit" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">_hidCheckSubmit</stringProp>
+                  <stringProp name="Argument.value">1</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="_txtSession_Id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">_txtSession_Id</stringProp>
+                  <stringProp name="Argument.value">tw-2101268454867017728wor</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="_txtUserName" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">_txtUserName</stringProp>
+                  <stringProp name="Argument.value">perftest555</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="_txtPassword" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">_txtPassword</stringProp>
+                  <stringProp name="Argument.value">123456</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="csrf_token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">true</boolProp>
+                  <stringProp name="Argument.name">csrf_token</stringProp>
+                  <stringProp name="Argument.value">PDnSliBkhpe56NBAJnFqe5GS4GC/B2rbBPjU2BkHIJg=</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/login.php</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/dashboard.php-8" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/dashboard.php</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/v1:GetHints?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw-9" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#x10;&#x14;&#x10;&#x17;&#x18;&#x2;&quot;6&#xd;
+4https://performancetestingpractice.com/dashboard.php(&#x3;(&#x2;:&#x5;en-USJ&#x2;&#x8;&#x6;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">optimizationguide-pa.googleapis.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1:GetHints?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Logout" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/oauth2/v4/token-10" enabled="false">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="client_id" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">client_id</stringProp>
+                  <stringProp name="Argument.value">77185425430.apps.googleusercontent.com</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="client_secret" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">client_secret</stringProp>
+                  <stringProp name="Argument.value">OTJgUOQcT7lO7GsGZq2G4IlT</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="grant_type" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">grant_type</stringProp>
+                  <stringProp name="Argument.value">refresh_token</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="refresh_token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">refresh_token</stringProp>
+                  <stringProp name="Argument.value">1//0gf6qdXGA1adsCgYIARAAGBASNwF-L9IrYSIs3B8ayH1Di1WvWlZDscntWBnMFcfCx9Tu4xrl8T7VxfpkPXb75d3QXSS3fCh7G-g</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+                <elementProp name="scope" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">scope</stringProp>
+                  <stringProp name="Argument.value">https://www.googleapis.com/auth/identity.passwords.leak.check</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">www.googleapis.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/oauth2/v4/token</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login/v1/leaks:lookupSingle-12" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#xd;
+&#x4;&#x88;nÐÀ&#x10;&#x1a;&#x1a;!&#x2;Ñ8smvdK!¨¤o¾3ÙMí&#x8d;ý&#x8f;&#x83;&#xf;&#x18;Ì)&#xd;
+&lt;&#x88;àÁ&#x1e;Dn</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">passwordsleakcheck-pa.googleapis.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1/leaks:lookupSingle</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Log/jserrors/1/f9d051f404?a=205242107&amp;sa=1&amp;v=1216.487a282&amp;t=Unnamed%20Transaction&amp;rst=251863&amp;ck=1&amp;ref=https://app.hubspot.com/conversations-visitor/7940397/threads/utk/af0c227d4e044bb082e1d7190fd1789c-11" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;sm&quot;:[{&quot;params&quot;:{&quot;name&quot;:&quot;Ajax/Events/Excluded/Agent&quot;},&quot;stats&quot;:{&quot;c&quot;:1}}],&quot;xhr&quot;:[{&quot;params&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;hostname&quot;:&quot;bam-cell.nr-data.net&quot;,&quot;port&quot;:&quot;443&quot;,&quot;protocol&quot;:&quot;https&quot;,&quot;host&quot;:&quot;bam-cell.nr-data.net:443&quot;,&quot;pathname&quot;:&quot;/jserrors/1/f9d051f404&quot;,&quot;status&quot;:200},&quot;metrics&quot;:{&quot;count&quot;:1,&quot;txSize&quot;:{&quot;t&quot;:376},&quot;rxSize&quot;:{&quot;t&quot;:24},&quot;duration&quot;:{&quot;t&quot;:10976},&quot;cbTime&quot;:{&quot;t&quot;:0},&quot;time&quot;:{&quot;t&quot;:190875}}}]}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">bam-cell.nr-data.net</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/jserrors/1/f9d051f404?a=205242107&amp;sa=1&amp;v=1216.487a282&amp;t=Unnamed%20Transaction&amp;rst=251863&amp;ck=1&amp;ref=https://app.hubspot.com/conversations-visitor/7940397/threads/utk/af0c227d4e044bb082e1d7190fd1789c</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Logout/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D-13" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#x1f;&#x8b;&#x8;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;&#x0;ÍV[lÛÖ&#x19;&amp;åºfÔ`5¼K½´&#xf;LâØr&#x1d;Z¼&#x89;¤ä8&#x95;,Y¢lê.Y&#x97;Æqx&#x93;DY¢$J².&#x89;&#x7;&#x7;(&#x9a;¬}Ùº&#x16;è&#x9a;aK² m&#x86;&lt;x@&#x86;.YÖ6+ÖµØ&#x8a;&#x16;Cjd/E&#x83;&#xd;Åºn&#xd;²¡3&#x1a;4ë(&#x5;&#x8e;½`&#x19;êôe|øyø&#x83;ç&#x9c;ÿû¾ÿ;¤ñ«&#x1a;&#x9f;á&#x17;&#x94;&#x12;EØ3&#x5;^É&#x8f;&#x8a;ÅB¯Ø&#xf;î¸ñuãUÐ&#x98;NÙ&#x1c;®rÕ&#x91;ªóZR&#x99;æèX´H&#x12;XÁMùEÞÁø&#x3;V³&#xf;«°éP¢&#x85;&#x9b;¥yÁM&#x12;&#xb;-©PÉ&#x90;ü&#x94;9Æ8G&amp;­õT¼êÉy5OÚ_&#x13;Å&#x8c;·&#x99;­&#x5;¸*ï&#xd;
+»bi&#x9a;fµZh|&#x1c;þÛë+&#x17;Þ¹ô/&#x83;é­§®_¹&#x81;¢¯&#x1e;=öý&#x1b;¨­&#x7f;®Ú¨Æ*²æç&#xb;ò¡&#x92;¬¥«r¥j±X¾&#x3;&#x2;?&#x1;±&apos;^¹&#x1f;1nÝøNß}&#x1b;^ê&#x7f;õø±W®&#x9d;Zy &#x7f;éÜ÷&gt;8}zå&#x81;óàC®´¥&#x94;&#x89;úÙi7)&#x8d;X&#x18;gÚg&#x95;iÏ|&#x94;Ë£ãÆS=ë&#x88;[D©&#x88;M4&#x1d;&#x11;§&#x93;&#x13;KDlÞ&#x93;NIì&#x88;X&#x8c;69|¦&#x8e;rd&#x82;rz$4&#x87;Ïð&#xc;1&#x93;ká&#xe;&#x1c;&#x95;Íæ&#x9c;&#x87;È&#x10;&#x93;&#xd;
+·P&#xe;ñ!?ë&#x13;ÉZ\EKØ&#x14;çô&#x7;Y&gt;½Ð@3:â«¿[&gt;ñë&#x15;&#x1d;ñ&#x85;×:&#x88;ÿùØ&apos;úÍv¿k22&#x1d;&#xd;&#x4;&#x11;&#x94;&#x9e;&#x8a;M&#x90;®&#xe;Ð&#x8f;»Ï_èÿ°Û8P&#x91;+&#x15;¥¨ÎU&#x9a;ª¨F&#x19;ÿ|&#xd;
+O8&#x5;Ò&#x1a;­QT&#x94;å&#x1a;&#x9e;úøø¶&#x97;»¡ÇÞ]þ¼§÷W&#x97;ôØ&#xf;À&#x6;&#x13;&#x80;&#x3;6©¯WÌjÅ&#x82;l3&#x9b;U¹^å&#x5;ó6`G&#x8f;_®ÃQ^@Aû&#x83;ì/^¸¦×&#x10;&#x4;&#x12;À&#x1; ñÒ&#xb;?;Ñæì8ø&#x6;¸&#xc;&#x2;o&#x80;÷¾&#x3;&#x2;&#x97;Áµôû&#x1b;F&#x9f;¯] í&#x87;&#x86;&gt;4[­&#x96;*ú.m)&#x8a;Z&#x81;WE¹­&#x88;¢fJ&#x1a;/V&#x15;Qnw&#x99;9_Ì(êh)[Ú¶é&#x19;;F¹ö&#x10;¶ÁÁõ&#x19;°£TÊ+&quot;_Õ&#x19;&#x82;£7§Ã&#x1;5¯¨2&#xd;
+Ø&#x7;ÙSç?]G÷ãÓG¯Ü&#x8e;Îp&#x19;\KoÄôþ­ì_À1ã¦kí}÷Òª¾o?øwÐ «m&#x82;È/¸&#x84;ÄW²B&#x91;×¤»$&#x89;ð5a&#x87;(&#x16;kjõ&#x8b;3Õc7±ç.^_gêÌ&#x99;&#x17;?ÜÀÔy&#x10;ß&lt;&#x7;&#x1d;zÁËàÚZÿ&#x9d;Þ&#xe;AY&#x10;Ö÷xÈÚ&#x12;j\¢5Õò&#x84;&#x19;&#x9a;&#x89;&#x6;%Æ#G4ÿ|£è&#x1d;7^ì2&#xe;&#x90;&#x18;Îã&lt;J!&#x92;&#x85; &#x10;&#x92;Hó&#x8;&#x83;&#x12;¼þh¥q+Jó4JÁ&#x80;é&#x97;&#x1d;(èÍ&#x9b;Í{&apos;Ó &#x9b;EÔñås&#x86;&apos;þ°Òõ´&#x1;ZCÐ×&#x7f;GWf #à]Xc&#x93;&#x8d;&#xe;&#x3;;&#x8c;&#x10;Ð&#xb;è®&#x7;L&#x80;éq&#x10;&#x5;&#x98;?&#x1e;;&#xe;ÙA¶s&#x1a;&#x4;;&apos;Cb­Þ&#x3;ë2d×rºX-`	4&lt;&#x5;nºÚgAà8&#x8;¼&#x8;&#x2;Ëà7t&#xd;g\&#x81;ù\@¶zÐ©&#x85;&#x86;;&#x95;s1&#xd;&#x1f;7&#x99;$ª&gt;ß¸ñ-]CBb0YÂ$&#x84;&#x12;)&#x12;!E&#x81;Gx&#x81;&#x92;&#x11;Ìb&#x15;1&#x9a; x^âu&#x1c;?&#x7f;m£&#x86;¾/«á&#x7f;Øª£ãÉ&#x8e;&#x8e;?0@kýù?t,AGÁ»tðÝø±#hÏ-A&#x8f;´&#x5;&#x5;nSs­ê;©©»j	&#x4;¾¼&#x9e;&#x8a;¿&#x18;Ïû&#xb;lbR&#x99; ,rK¤0¬&#x91;&#x8e;4¥@rüÎ&#x8c;íXî&#x82;&#x8e;&#x1e;6@¯?o&#x80;~ú&#x81;&#x1;zû&#x1f;]ÐµU&#x10;zïr&#x1f;ôæ3_&#x83;Î&#x9d;0C×/&#x1a; ÕU&#x3;tòl7ô&#x9b;#]Ð_?5@&#x7f;&gt;}/ô£«ÝÐGÏl&#x81;Î&#x9c;5BÏ½´&#x5;ºòÙ&#x16;èé&apos;¿	=ÿ§&#x7;¡&#x8f;W·C&#x9f;½7&#x0;&#x9d;ýý&#x0;ôæ&#x93;ÃÐÉ&#x97;wCßýÈ&#x6;&#x1d;þÄÐ&#xb;¶ézøYP&#x16;\Q¤¥hÚ|Ææ&#x8;:¬&#x98;àqG**IÒ&#x8a;&#x9f;Z ´Z&#x3;&#x89;§&#x8b;&#x19;&#x7f;LCkI&#x85;&#x88;Nf&#x10;ÚÂ&#x6;&#x99;Vy.I&#x17;&#x8a;¤P&#x88;G¨&#x90;äHåQÆ§dë!V B&#x82;´PÅ½*+ÇËÑF&amp;æÈ4&#x4;Z)3µxÂ-&#x16;&#x9a;&#x81;¤&#x8a;ç&amp;\&#x1c;í&#x89;Ä&#x2;²s¡@X&#x90;Z|NõÊÓR&#x89;ãÃùù&#x88;&#x1a;@&#x1;Ûÿoqv&#x10;_2&#x98;&#xe;&#x8e;&#x14;gÓáÅâbÓ&#x86;J&#xf;óÙ1&#x93;¥:T&#x80;Å&#x94;æ´ìñ¹í»&#x9c;&#x83;»ÕÄ$¶s»6+J&#x8e;&#x8c;\;T§&#x93;\8z0@&#x87;&#x9c;¡Ô&#x88;&quot;ûgGöì¤Y&amp;Hg)l6hZ,/NEìlÒzèÑ)45æEÌ¹&#x80;º_&#x9d;&#x1a;r¡Xyûþ2®ÅÜ£l¼N§&#x87;¦&#x93;¥Ê¾Å¡Ö&#x98;&#x2;&#x8f;Ô]Ö¬&#x14;mqÛuÄ&#x7;«û&#x7;dsP&#x98;¥&#xd;
+&#x9a;}X&#x1b;Ü3&#x98;cw&#x9b;áò£&#x89;Äü`jÎé,³&#x1a;[E&#xf;Íd÷68&#x8e;T&#x12;$W&#xf;Í&#x85;Ã&#x83;IÞ&#x97;ÄÉÅ&#x19;ç¾&#x3;³î±½&#x8f;H1Ñæ&#x18;úVqd(&#x7;Ç&lt;î&#x99;&#x89;]û¦&#x1f;&#x19;«Ä¸é½&quot;&#x8a;gQÛ®&#x16;Ú¾0ý`&#x92;,&#xc;&#x86;0V&#x92;BÚ&#x99;N°&#x8;úgÆJXÃ&#x9c;ñ+}[uG&#x2;á{ôs&#x17;&lt;°ÕxO¿ÞÝzÔ{ñ¶¨wömñVþfÇ¦¾&#xd;&#x1a;&#x1f;&#x7;û&#x16;&#x9d;&#x9d;ÿ48îõÃ&#x18;&#x86;&#x8f;¢£&#x16;&#xd;
+³&#x8c;b&#x4;&#x3;&#x9b;&#x4;&#x8c;BÓ&#x98;d&#x95;­(ÏSV&#x12;&#x95;0Z²&#x88;&#x2;Iê9&#x6;³à¨EÂQ&#x9c;D49]1&#xb;&#x9a;îñ,&#x92;&#x95;y©bn/b?¸&#x13;Ã&#x19;lq&#x18;&#x16;³¼ªÊySEÿ&#x11;ÌËÃ»3-¥dÊ¤åáàÒáß&#x1e;y»[&#x18;rx[|¤9&#x11;¨*dÁ&#x87;P&#xd;kÜ¥¦¼9¯Ü&#x9c;&#x8c;áX 4&#x91;(Ç&apos;2õ&#x9c;n7í&gt;ÙÛ&#x9c;LçK©0&#x15;ú7&#x82;¢&#x1d;vT&#xc;&#x0;&#x0;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">clients4.google.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/chrome-sync/command/?client=Google+Chrome&amp;client_id=nT8NkZ2XCb49Tu66THLxGw%3D%3D</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Logout/v1:GetHints?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw-15" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#x10;&#x14;&#x10;&#x17;&#x18;&#x2;&quot;3&#xd;
+1https://performancetestingpractice.com/logout.php(&#x3;(&#x2;:&#x5;en-USJ&#x2;&#x8;&#x6;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">optimizationguide-pa.googleapis.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/v1:GetHints?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Logout/safebrowsing/clientreport/realtime-16" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&#xd;
+1https://performancetestingpractice.com/logout.php&#x10;&#x1;&#x1a;a&#x8;&#x3;&#x10;&#x1;(&#x2;0&#x0;8&#x0;@&#x1;J&#x1d;Chrome/112.0.5615.138/WindowsP&#x4;X&#x1;`&#x1;r+&#x8;&#x1;&#x10;á¯ûáý0&#x1a; üýGî%¼__ÿ&#x5;&#x1a;D[&#x3;¶°ÜÓ¿&#x85;&#x89;&#x97;?&#x1d;´Õ&#x5;&#x2;T&#x19;&#x90;ü&#x90;&#x1;&#x1;0&#x3;8&#x7;B&#x93;&#x1;&#xd;
+1https://performancetestingpractice.com/logout.php&#x10;&#x1;&#x1a;&#xd;
+5.9.96.241&#x1a;	127.0.0.1&quot;4https://performancetestingpractice.com/dashboard.php0&#x1;9&#x0;à}íÃ}xBP&#x3;X&#x0;p&#x0;Bþ&#x1;&#xd;
+4https://performancetestingpractice.com/dashboard.php&#x10;&#x2;&#x1a;&#xd;
+5.9.96.241&#x1a;	127.0.0.1&quot;0https://performancetestingpractice.com/login.php0&#x0;9&#x0;Ð&#xb;êÃ}xBB2&#xd;
+0https://performancetestingpractice.com/login.phpB6&#xd;
+4https://performancetestingpractice.com/dashboard.phpP&#x3;X&#x0;p&#x0;B\&#xd;
+0https://performancetestingpractice.com/login.php&#x10;&#x3;&#x1a;&#xd;
+5.9.96.241&#x1a;	127.0.0.10&#x0;9&#x0;P&apos;ÔÃ}xBP&#x1;X&#x0;p&#x0;H&#x1;P&#x1;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">safebrowsing.google.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/safebrowsing/clientreport/realtime</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Logout/logout.php-14" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/logout.php</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Detected the start of a redirect chain</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Logout/login.php-17" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">performancetestingpractice.com</stringProp>
+            <stringProp name="HTTPSampler.port">443</stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+            <stringProp name="HTTPSampler.path">/login.php</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Testcase_Recording" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Launch2" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Login2" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Logout2" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ProxyControl guiclass="ProxyControlGui" testclass="ProxyControl" testname="HTTP(S) Test Script Recorder" enabled="true">
+        <stringProp name="ProxyControlGui.port">8888</stringProp>
+        <collectionProp name="ProxyControlGui.exclude_list">
+          <stringProp name="1179605444">(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|eot|otf|ttf|mp4|woff|woff2)</stringProp>
+          <stringProp name="-88591710">www\.download\.windowsupdate\.com.*</stringProp>
+          <stringProp name="-2063843150">(?i).*\.(bmp|css|js|gif|ico|jpe?g|png|swf|woff|woff2)</stringProp>
+        </collectionProp>
+        <collectionProp name="ProxyControlGui.include_list"/>
+        <boolProp name="ProxyControlGui.capture_http_headers">false</boolProp>
+        <intProp name="ProxyControlGui.grouping_mode">0</intProp>
+        <boolProp name="ProxyControlGui.add_assertion">false</boolProp>
+        <stringProp name="ProxyControlGui.sampler_type_name"></stringProp>
+        <boolProp name="ProxyControlGui.sampler_redirect_automatically">false</boolProp>
+        <boolProp name="ProxyControlGui.sampler_follow_redirects">true</boolProp>
+        <boolProp name="ProxyControlGui.use_keepalive">true</boolProp>
+        <boolProp name="ProxyControlGui.detect_graphql_request">true</boolProp>
+        <boolProp name="ProxyControlGui.sampler_download_images">false</boolProp>
+        <intProp name="ProxyControlGui.proxy_http_sampler_naming_mode">0</intProp>
+        <stringProp name="ProxyControlGui.default_encoding"></stringProp>
+        <stringProp name="ProxyControlGui.proxy_prefix_http_sampler_name">Logout</stringProp>
+        <stringProp name="ProxyControlGui.proxy_pause_http_sampler"></stringProp>
+        <boolProp name="ProxyControlGui.notify_child_sl_filtered">false</boolProp>
+        <boolProp name="ProxyControlGui.regex_match">false</boolProp>
+        <stringProp name="ProxyControlGui.content_type_include"></stringProp>
+        <stringProp name="ProxyControlGui.content_type_exclude"></stringProp>
+      </ProxyControl>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
